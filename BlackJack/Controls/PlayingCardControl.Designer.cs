@@ -32,6 +32,8 @@
 			this.bottom_right_value = new System.Windows.Forms.Label();
 			this.top_left_symbol = new System.Windows.Forms.Label();
 			this.bottom_right_symbol = new System.Windows.Forms.Label();
+			this.card_backside = new System.Windows.Forms.PictureBox();
+			((System.ComponentModel.ISupportInitialize)(this.card_backside)).BeginInit();
 			this.SuspendLayout();
 			// 
 			// top_left_value
@@ -72,17 +74,30 @@
 			this.bottom_right_symbol.TabIndex = 3;
 			this.bottom_right_symbol.Text = "♥";
 			// 
+			// card_backside
+			// 
+			this.card_backside.Image = global::BlackJack.Properties.Resources.playingcard_back;
+			this.card_backside.Location = new System.Drawing.Point(0, 0);
+			this.card_backside.Name = "card_backside";
+			this.card_backside.Size = new System.Drawing.Size(80, 125);
+			this.card_backside.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+			this.card_backside.TabIndex = 4;
+			this.card_backside.TabStop = false;
+			this.card_backside.Visible = false;
+			// 
 			// PlayingCardControl
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
+			this.Controls.Add(this.card_backside);
 			this.Controls.Add(this.bottom_right_symbol);
 			this.Controls.Add(this.top_left_symbol);
 			this.Controls.Add(this.bottom_right_value);
 			this.Controls.Add(this.top_left_value);
 			this.Name = "PlayingCardControl";
 			this.Size = new System.Drawing.Size(80, 125);
+			((System.ComponentModel.ISupportInitialize)(this.card_backside)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -94,5 +109,6 @@
 		private System.Windows.Forms.Label bottom_right_value;
 		private System.Windows.Forms.Label top_left_symbol;
 		private System.Windows.Forms.Label bottom_right_symbol;
+		private System.Windows.Forms.PictureBox card_backside;
 	}
 }

@@ -13,6 +13,7 @@ namespace VisualCardGame.Controls
 {
 	public partial class PlayingCardControl : UserControl
 	{
+		private PlayingCard playingCard;
 		private string value;
 		private char suit;
 
@@ -20,14 +21,21 @@ namespace VisualCardGame.Controls
 		{
 			InitializeComponent();
 
-			SetValues(playingCard.Value);
+			this.playingCard = playingCard;
 
-			SetSuits(playingCard.Suit);
+			SetVisibility();
+			SetValues();
+			SetSuits();
 		}
 
-		private void SetValues(Value value)
+		public void FlipCard()
 		{
-			switch (value)
+			this.card_backside.Visible = !this.card_backside.Visible;
+		}
+
+		private void SetValues()
+		{
+			switch (playingCard.Value)
 			{
 				case Value.Ace:
 					this.value = "A";
@@ -42,7 +50,7 @@ namespace VisualCardGame.Controls
 					this.value = "K";
 					break;
 				default:
-					this.value = value.ToString();
+					this.value = ((int)playingCard.Value).ToString();
 					break;
 			}
 
@@ -50,7 +58,7 @@ namespace VisualCardGame.Controls
 			this.bottom_right_value.Text = this.value;
 		}
 
-		private void SetSuits(Suit suit)
+		private void SetSuits()
 		{
 			char[] suits = new char[4] { '♥', '♣', '♠', '♦' };
 			this.suit = suits[(int)suit];
@@ -59,15 +67,23 @@ namespace VisualCardGame.Controls
 			this.bottom_right_symbol.Text = this.suit.ToString();
 
 			// sets the correct color of the symbols
-			if (suit == Suit.Diamonds || suit == Suit.Hearts)
+			if (this.playingCard.Suit == Suit.Diamonds || this.playingCard.Suit == Suit.Hearts)
 			{
 				this.top_left_symbol.ForeColor = Color.Red;
 				this.bottom_right_symbol.ForeColor = Color.Red;
 			}
-			else if (suit == Suit.Clubs || suit == Suit.Spades)
+			else if (this.playingCard.Suit == Suit.Clubs || this.playingCard.Suit == Suit.Spades)
 			{
 				this.top_left_symbol.ForeColor = Color.Black;
 				this.bottom_right_symbol.ForeColor = Color.Black;
+			}
+		}
+
+		private void SetVisibility()
+		{
+			if (this.playingCard.isVisible == false)
+			{
+				this.card_backside.Visible = true;
 			}
 		}
 	}
