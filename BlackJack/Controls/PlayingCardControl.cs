@@ -13,49 +13,58 @@ namespace VisualCardGame.Controls
 {
 	public partial class PlayingCardControl : UserControl
 	{
+		private string value;
+		private char suit;
+
 		public PlayingCardControl(PlayingCard playingCard)
 		{
 			InitializeComponent();
 
-			string cardValue = "1";
+			SetValues(playingCard.Value);
 
-			// set the value
-			if (playingCard.Value == 0)
+			SetSuits(playingCard.Suit);
+		}
+
+		private void SetValues(Value value)
+		{
+			switch (value)
 			{
-				switch (playingCard.SpecialValue)
-				{
-					case Value.Ace: cardValue = "A";
-						break;
-					case Value.Jack: cardValue = "J";
-						break;
-					case Value.Queen: cardValue = "Q";
-						break;
-					case Value.King: cardValue = "K";
-						break;
-				}
-			} 
-			else
-			{
-				cardValue = playingCard.Value.ToString();
+				case Value.Ace:
+					this.value = "A";
+					break;
+				case Value.Jack:
+					this.value = "J";
+					break;
+				case Value.Queen:
+					this.value = "Q";
+					break;
+				case Value.King:
+					this.value = "K";
+					break;
+				default:
+					this.value = value.ToString();
+					break;
 			}
 
-			this.top_left_value.Text = cardValue;
-			this.bottom_right_value.Text = cardValue;
-			
-			// sets the symbol
-			char[] symbols = new char[4] { '♥', '♣', '♠', '♦' };
-			char symbol = symbols[(int)playingCard.Symbol];
-			
-			this.top_left_symbol.Text = symbol.ToString();
-			this.bottom_right_symbol.Text = symbol.ToString();
+			this.top_left_value.Text = this.value;
+			this.bottom_right_value.Text = this.value;
+		}
+
+		private void SetSuits(Suit suit)
+		{
+			char[] suits = new char[4] { '♥', '♣', '♠', '♦' };
+			this.suit = suits[(int)suit];
+
+			this.top_left_symbol.Text = this.suit.ToString();
+			this.bottom_right_symbol.Text = this.suit.ToString();
 
 			// sets the correct color of the symbols
-			if (playingCard.Symbol == Suit.Diamonds || playingCard.Symbol == Suit.Hearts)
+			if (suit == Suit.Diamonds || suit == Suit.Hearts)
 			{
 				this.top_left_symbol.ForeColor = Color.Red;
 				this.bottom_right_symbol.ForeColor = Color.Red;
 			}
-			else if (playingCard.Symbol == Suit.Clubs || playingCard.Symbol == Suit.Spades)
+			else if (suit == Suit.Clubs || suit == Suit.Spades)
 			{
 				this.top_left_symbol.ForeColor = Color.Black;
 				this.bottom_right_symbol.ForeColor = Color.Black;
