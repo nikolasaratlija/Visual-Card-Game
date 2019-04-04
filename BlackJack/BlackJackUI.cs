@@ -12,9 +12,9 @@ using VisualCardGame.Controls;
 
 namespace VisualCardGame
 {
-	public partial class Form1 : Form
+	public partial class BlackJackUI : Form
 	{
-		public Form1()
+		public BlackJackUI()
 		{
 			InitializeComponent();
 			ShowDeck();
@@ -32,23 +32,29 @@ namespace VisualCardGame
 
 			for (int i = 0; i < cardDeck.DeckList.Count; i++)
 			{
-				PlayingCardControl pcc = new PlayingCardControl(cardDeck.DeckList[i])
+				PlayingCardControl control = new PlayingCardControl(cardDeck.DeckList[i])
 				{
 					Location = new Point(x, y)
 				};
-				this.Controls.Add(pcc);
+				this.Controls.Add(control);
 				nthCardOfSymbol++;
 
 				if (nthCardOfSymbol % 13 == 0)
 				{
 					x = 0;
-					y += pcc.Height + margin;
+					y += control.Height + margin;
 				}
 				else
 				{
-					x += pcc.Width + margin;
+					x += control.Width + margin;
 				}
 			}
+		}
+
+		public List<PlayingCard> PickCardAtRandom(int amount)
+		{
+			// TODO;
+			return new List<PlayingCard>();
 		}
 	}
 }

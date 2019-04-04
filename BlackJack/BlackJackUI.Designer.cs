@@ -1,6 +1,6 @@
 ﻿namespace VisualCardGame
 {
-	partial class Form1
+	partial class BlackJackUI
 	{
 		/// <summary>
 		/// Required designer variable.
