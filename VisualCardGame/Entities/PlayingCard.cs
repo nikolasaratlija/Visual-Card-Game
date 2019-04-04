@@ -8,31 +8,31 @@ namespace VisualCardGame.Entities
 {
 	public class PlayingCard
 	{
-		private readonly int value;
-		private readonly Symbol symbol;
-		private readonly SpecialValue specialValue;
+		private readonly int tempValue;
+		private readonly Suit suit;
+		private readonly Value value;
 		public bool isVisible;
 
 		#region getters and setters
 
-		public int Value { get => value; }
-		internal Symbol Symbol { get => symbol; }
-		internal SpecialValue SpecialValue { get => specialValue; }
+		public int Value { get => tempValue; }
+		internal Suit Symbol { get => suit; }
+		internal Value SpecialValue { get => value; }
 
 		#endregion getters and setters
 
-		internal PlayingCard(int value, Symbol symbol, bool isVisible)
+		internal PlayingCard(int value, Suit symbol, bool isVisible)
 		{
-			this.value = value;
-			this.symbol = symbol;
+			this.tempValue = value;
+			this.suit = symbol;
 			this.isVisible = isVisible;
 		}
 
-		internal PlayingCard(SpecialValue specialValue, Symbol symbol, bool isZichtbaar)
+		internal PlayingCard(Value value, Suit symbol, bool isVisible)
 		{
-			this.specialValue = specialValue;
-			this.symbol = symbol;
-			this.isVisible = isZichtbaar;
+			this.value = value;
+			this.suit = symbol;
+			this.isVisible = isVisible;
 		}		
 
 		public void Flip()
@@ -46,16 +46,16 @@ namespace VisualCardGame.Entities
 
 			if (this.isVisible)
 			{
-				if (this.value > 10 || this.value < 2)
-				{
-					cardInfo = this.specialValue.ToString();
-				}
-				else
+				if (this.tempValue > 10 || this.tempValue < 2)
 				{
 					cardInfo = this.value.ToString();
 				}
+				else
+				{
+					cardInfo = this.tempValue.ToString();
+				}
 
-				cardInfo += " of " + this.symbol.ToString();
+				cardInfo += " of " + this.suit.ToString();
 			}
 
 			return cardInfo;

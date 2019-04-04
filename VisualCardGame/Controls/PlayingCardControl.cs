@@ -24,13 +24,13 @@ namespace VisualCardGame.Controls
 			{
 				switch (playingCard.SpecialValue)
 				{
-					case SpecialValue.ace: cardValue = "A";
+					case Value.Ace: cardValue = "A";
 						break;
-					case SpecialValue.jack: cardValue = "J";
+					case Value.Jack: cardValue = "J";
 						break;
-					case SpecialValue.queen: cardValue = "Q";
+					case Value.Queen: cardValue = "Q";
 						break;
-					case SpecialValue.king: cardValue = "K";
+					case Value.King: cardValue = "K";
 						break;
 				}
 			} 
@@ -50,12 +50,12 @@ namespace VisualCardGame.Controls
 			this.bottom_right_symbol.Text = symbol.ToString();
 
 			// sets the correct color of the symbols
-			if (playingCard.Symbol == Symbol.diamonds || playingCard.Symbol == Symbol.hearts)
+			if (playingCard.Symbol == Suit.Diamonds || playingCard.Symbol == Suit.Hearts)
 			{
 				this.top_left_symbol.ForeColor = Color.Red;
 				this.bottom_right_symbol.ForeColor = Color.Red;
 			}
-			else if (playingCard.Symbol == Symbol.clubs || playingCard.Symbol == Symbol.spades)
+			else if (playingCard.Symbol == Suit.Clubs || playingCard.Symbol == Suit.Spades)
 			{
 				this.top_left_symbol.ForeColor = Color.Black;
 				this.bottom_right_symbol.ForeColor = Color.Black;

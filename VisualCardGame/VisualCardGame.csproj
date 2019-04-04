@@ -54,10 +54,10 @@
     <Compile Include="Controls\PlayingCardControl.Designer.cs">
       <DependentUpon>PlayingCardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Entities\SpecialValue.cs" />
+    <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\PlayingCard.cs" />
     <Compile Include="Entities\PlayingDeck.cs" />
-    <Compile Include="Entities\Symbol.cs" />
+    <Compile Include="Entities\Suit.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

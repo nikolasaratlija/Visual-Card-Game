@@ -7,8 +7,11 @@ using System.Drawing;
 
 namespace VisualCardGame.Entities
 {
-	enum Symbol
+	enum Suit
 	{
-		hearts, clubs, spades, diamonds
+		Hearts,
+		Clubs,
+		Spades,
+		Diamonds
 	}
 }
