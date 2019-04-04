@@ -8,7 +8,7 @@ namespace VisualCardGame.Entities
 {
 	public class PlayingCard
 	{
-		public bool isVisible;
+		public bool isFaceUp;
 
 		#region getters and setters
 
@@ -17,16 +17,16 @@ namespace VisualCardGame.Entities
 
 		#endregion getters and setters
 
-		internal PlayingCard(Value value, Suit symbol, bool isVisible)
+		internal PlayingCard(Value value, Suit symbol, bool isFaceUp)
 		{
 			this.Value = value;
 			this.Suit = symbol;
-			this.isVisible = isVisible;
+			this.isFaceUp = isFaceUp;
 		}		
 
 		public void Flip()
 		{
-			this.isVisible = !this.isVisible;
+			this.isFaceUp = !this.isFaceUp;
 		}
 	}
 }

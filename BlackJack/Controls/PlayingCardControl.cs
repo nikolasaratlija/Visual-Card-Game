@@ -23,13 +23,19 @@ namespace VisualCardGame.Controls
 
 			this.playingCard = playingCard;
 
+			this.Click += new EventHandler(this.FlipCard);
+
+			for (int i = 0; i < Controls.Count; i++)
+			{
+				Controls[i].Click += new EventHandler(this.FlipCard);
+			}
+
 			SetVisibility();
 			SetValues();
 			SetSuits();
 		}
 
-		public void FlipCard()
-		{
+		private void FlipCard(object sender, EventArgs e) {
 			this.card_backside.Visible = !this.card_backside.Visible;
 		}
 
@@ -81,7 +87,7 @@ namespace VisualCardGame.Controls
 
 		private void SetVisibility()
 		{
-			if (this.playingCard.isVisible == false)
+			if (this.playingCard.isFaceUp == false)
 			{
 				this.card_backside.Visible = true;
 			}
