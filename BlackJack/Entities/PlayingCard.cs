@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualCardGame.Entities
+namespace BlackJack.Entities
 {
 	public class PlayingCard
 	{

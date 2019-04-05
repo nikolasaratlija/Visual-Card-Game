@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace VisualCardGame.Entities
+namespace BlackJack.Entities
 {
-	class PlayingDeck
+	class PlayingCardDeck
 	{
-		public PlayingDeck()
+		public PlayingCardDeck()
 		{
 			int cardsPerSuit = 13;
 			int suitCount = 4; 

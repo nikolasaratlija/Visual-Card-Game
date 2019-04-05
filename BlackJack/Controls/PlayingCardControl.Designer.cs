@@ -1,4 +1,4 @@
-﻿namespace VisualCardGame.Controls
+﻿namespace BlackJack.Controls
 {
 	partial class PlayingCardControl
 	{
@@ -39,20 +39,18 @@
 			// top_left_value
 			// 
 			this.top_left_value.AutoSize = true;
-			this.top_left_value.Location = new System.Drawing.Point(2, 0);
-			this.top_left_value.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.top_left_value.Location = new System.Drawing.Point(3, 0);
 			this.top_left_value.Name = "top_left_value";
-			this.top_left_value.Size = new System.Drawing.Size(13, 13);
+			this.top_left_value.Size = new System.Drawing.Size(16, 17);
 			this.top_left_value.TabIndex = 0;
 			this.top_left_value.Text = "2";
 			// 
 			// bottom_right_value
 			// 
 			this.bottom_right_value.AutoSize = true;
-			this.bottom_right_value.Location = new System.Drawing.Point(46, 88);
-			this.bottom_right_value.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.bottom_right_value.Location = new System.Drawing.Point(61, 108);
 			this.bottom_right_value.Name = "bottom_right_value";
-			this.bottom_right_value.Size = new System.Drawing.Size(13, 13);
+			this.bottom_right_value.Size = new System.Drawing.Size(16, 17);
 			this.bottom_right_value.TabIndex = 1;
 			this.bottom_right_value.Text = "2";
 			// 
@@ -60,10 +58,9 @@
 			// 
 			this.top_left_symbol.AutoSize = true;
 			this.top_left_symbol.ForeColor = System.Drawing.Color.Red;
-			this.top_left_symbol.Location = new System.Drawing.Point(2, 14);
-			this.top_left_symbol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.top_left_symbol.Location = new System.Drawing.Point(3, 17);
 			this.top_left_symbol.Name = "top_left_symbol";
-			this.top_left_symbol.Size = new System.Drawing.Size(15, 13);
+			this.top_left_symbol.Size = new System.Drawing.Size(16, 17);
 			this.top_left_symbol.TabIndex = 2;
 			this.top_left_symbol.Text = "♥";
 			// 
@@ -71,10 +68,9 @@
 			// 
 			this.bottom_right_symbol.AutoSize = true;
 			this.bottom_right_symbol.ForeColor = System.Drawing.Color.Red;
-			this.bottom_right_symbol.Location = new System.Drawing.Point(46, 74);
-			this.bottom_right_symbol.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+			this.bottom_right_symbol.Location = new System.Drawing.Point(61, 91);
 			this.bottom_right_symbol.Name = "bottom_right_symbol";
-			this.bottom_right_symbol.Size = new System.Drawing.Size(15, 13);
+			this.bottom_right_symbol.Size = new System.Drawing.Size(16, 17);
 			this.bottom_right_symbol.TabIndex = 3;
 			this.bottom_right_symbol.Text = "♥";
 			// 
@@ -82,9 +78,9 @@
 			// 
 			this.card_backside.Image = global::BlackJack.Properties.Resources.playingcard_back;
 			this.card_backside.Location = new System.Drawing.Point(0, 0);
-			this.card_backside.Margin = new System.Windows.Forms.Padding(2);
+			this.card_backside.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.card_backside.Name = "card_backside";
-			this.card_backside.Size = new System.Drawing.Size(60, 102);
+			this.card_backside.Size = new System.Drawing.Size(80, 126);
 			this.card_backside.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
 			this.card_backside.TabIndex = 4;
 			this.card_backside.TabStop = false;
@@ -92,7 +88,7 @@
 			// 
 			// PlayingCardControl
 			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.Controls.Add(this.card_backside);
@@ -100,9 +96,9 @@
 			this.Controls.Add(this.top_left_symbol);
 			this.Controls.Add(this.bottom_right_value);
 			this.Controls.Add(this.top_left_value);
-			this.Margin = new System.Windows.Forms.Padding(2);
+			this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
 			this.Name = "PlayingCardControl";
-			this.Size = new System.Drawing.Size(60, 102);
+			this.Size = new System.Drawing.Size(80, 126);
 			((System.ComponentModel.ISupportInitialize)(this.card_backside)).EndInit();
 			this.ResumeLayout(false);
 			this.PerformLayout();

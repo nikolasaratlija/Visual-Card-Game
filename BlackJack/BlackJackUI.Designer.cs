@@ -1,4 +1,4 @@
-﻿namespace VisualCardGame
+﻿namespace BlackJack
 {
 	partial class BlackJackUI
 	{

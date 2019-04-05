@@ -7,22 +7,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualCardGame.Entities;
-using VisualCardGame.Controls;
+using BlackJack.Entities;
+using BlackJack.Controls;
 
-namespace VisualCardGame
+namespace BlackJack
 {
 	public partial class BlackJackUI : Form
 	{
 		public BlackJackUI()
 		{
 			InitializeComponent();
-			ShowDeck();
+
+			Dealer dealer = new Dealer(new PlayingCardDeck());
+			PlayingCard card = dealer.DealCard();
+
+			PlayingCardControl control = new PlayingCardControl(card)
+			{
+				Location = new Point(15, 15)
+			};
+
+			Controls.Add(control);
 		}
 
 		private void ShowDeck()
 		{
-			PlayingDeck cardDeck = new PlayingDeck();
+			PlayingCardDeck cardDeck = new PlayingCardDeck();
 
 			int y = 0;
 			int x = 0;
@@ -49,12 +58,6 @@ namespace VisualCardGame
 					x += control.Width + margin;
 				}
 			}
-		}
-
-		public List<PlayingCard> PickCardAtRandom(int amount)
-		{
-			// TODO;
-			return new List<PlayingCard>();
 		}
 	}
 }

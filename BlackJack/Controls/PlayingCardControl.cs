@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using VisualCardGame.Entities;
+using BlackJack.Entities;
 
-namespace VisualCardGame.Controls
+namespace BlackJack.Controls
 {
 	public partial class PlayingCardControl : UserControl
 	{

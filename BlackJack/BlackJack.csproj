@@ -54,9 +54,10 @@
     <Compile Include="Controls\PlayingCardControl.Designer.cs">
       <DependentUpon>PlayingCardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="Entities\Dealer.cs" />
     <Compile Include="Entities\Value.cs" />
     <Compile Include="Entities\PlayingCard.cs" />
-    <Compile Include="Entities\PlayingDeck.cs" />
+    <Compile Include="Entities\PlayingCardDeck.cs" />
     <Compile Include="Entities\Suit.cs" />
     <Compile Include="BlackJackUI.cs">
       <SubType>Form</SubType>
