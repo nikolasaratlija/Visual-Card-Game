@@ -18,15 +18,35 @@ namespace BlackJack
 		{
 			InitializeComponent();
 
-			Dealer dealer = new Dealer(new PlayingCardDeck());
-			PlayingCard card = dealer.DealCard();
+			Dictionary<Value, int> specialValue = new Dictionary<Value, int>
+			{
+				{ Value.Jack, 10 },
+				{ Value.Queen, 10 },
+				{ Value.King, 10 }
+			};
 
-			PlayingCardControl control = new PlayingCardControl(card)
+			ShowDeck();
+			//ShowTwoCards();
+		}
+
+		private void ShowTwoCards()
+		{
+			Dealer dealer = new Dealer(new PlayingCardDeck());
+			PlayingCard cardOne = dealer.DealCard();
+			PlayingCard cardTwo = dealer.DealCard();
+
+			PlayingCardControl cardControlOne = new PlayingCardControl(cardOne)
 			{
 				Location = new Point(15, 15)
 			};
 
-			Controls.Add(control);
+			PlayingCardControl cardControlTwo = new PlayingCardControl(cardTwo)
+			{
+				Location = new Point(90, 15)
+			};
+
+			Controls.Add(cardControlOne);
+			Controls.Add(cardControlTwo);
 		}
 
 		private void ShowDeck()
