@@ -55,10 +55,10 @@
       <DependentUpon>PlayingCardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Dealer.cs" />
-    <Compile Include="Entities\Value.cs" />
-    <Compile Include="Entities\PlayingCard.cs" />
+    <Compile Include="Entities\PlayingCard\PlayingCard.cs" />
+    <Compile Include="Entities\PlayingCard\Suit.cs" />
+    <Compile Include="Entities\PlayingCard\Value.cs" />
     <Compile Include="Entities\PlayingCardDeck.cs" />
-    <Compile Include="Entities\Suit.cs" />
     <Compile Include="BlackJackUI.cs">
       <SubType>Form</SubType>
     </Compile>
