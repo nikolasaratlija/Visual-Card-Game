@@ -18,15 +18,7 @@ namespace BlackJack
 		{
 			InitializeComponent();
 
-			Dictionary<Value, int> specialValue = new Dictionary<Value, int>
-			{
-				{ Value.Jack, 10 },
-				{ Value.Queen, 10 },
-				{ Value.King, 10 }
-			};
-
-			ShowDeck();
-			//ShowTwoCards();
+			ShowTwoCards();
 		}
 
 		private void ShowTwoCards()

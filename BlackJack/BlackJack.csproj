@@ -55,6 +55,8 @@
       <DependentUpon>PlayingCardControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\Dealer.cs" />
+    <Compile Include="Entities\Hand.cs" />
+    <Compile Include="Entities\Player.cs" />
     <Compile Include="Entities\PlayingCard\PlayingCard.cs" />
     <Compile Include="Entities\PlayingCard\Suit.cs" />
     <Compile Include="Entities\PlayingCard\Value.cs" />

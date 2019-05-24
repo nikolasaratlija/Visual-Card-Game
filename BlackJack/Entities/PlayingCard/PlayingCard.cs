@@ -10,13 +10,6 @@ namespace BlackJack.Entities
 	{
 		public bool isFaceUp;
 
-		private readonly Dictionary<Value, int> facecardValue = new Dictionary<Value, int>
-		{
-			{ Value.Jack, 10 },
-			{ Value.Queen, 10 },
-			{ Value.King, 10 }
-		};
-
 		#region getters and setters
 
 		internal Suit Suit { get; }
