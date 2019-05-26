@@ -2,8 +2,8 @@
 {
 	enum Value
 	{
-		Ace,
-		Two, Three, Four, Five, Six, Seven, Eight, Nine, Ten,
+		Ace = 1,
+		Two, Three, Four, Five, Six, Seven, Eight, Nine,
 		Jack,
 		Queen,
 		King

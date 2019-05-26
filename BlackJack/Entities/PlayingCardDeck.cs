@@ -15,12 +15,12 @@ namespace BlackJack.Entities
 		/// </summary>
 		public PlayingCardDeck()
 		{
-			int cardsPerSuit = 13;
+			int cardsPerSuit = 12;
 			int suitCount = 4;
 
 			for (int suit = 0; suit < suitCount; suit++)
 			{
-				for (int value = 0; value < cardsPerSuit; value++)
+				for (int value = 1; value <= cardsPerSuit; value++)
 				{
 					this.DeckList.Add(new PlayingCard((Value)value, (Suit)suit, true));
 				}
@@ -30,12 +30,11 @@ namespace BlackJack.Entities
 		/// <summary>
 		/// Returns the first PlayingCard from the deck
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>PlayingCard object</returns>
 		public PlayingCard DrawFirstCard()
 		{
 			PlayingCard card = this.DeckList[0];
-
-			// Removes the drawn card from the deck and puts it in another list
+			
 			RemoveCard(card);
 			DrawnCardsList.Add(card);
 
