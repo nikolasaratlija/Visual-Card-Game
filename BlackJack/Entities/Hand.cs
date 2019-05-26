@@ -37,46 +37,45 @@ namespace BlackJack.Entities
 
 		#endregion
 
-		public void Hit(PlayingCardDeck deck)
+		/// <summary>
+		/// Draws a card then adds the value of the card.
+		/// </summary>
+		/// <param name="deck"></param>
+		/// <returns>A PlayingCard object</returns>
+		public PlayingCard Hit(PlayingCardDeck deck)
 		{
 			PlayingCard card = deck.DrawFirstCard();
 			cardsInHand.Add(card);
-			CalculateValueOfHand(card);
-			CalculateIfBust();
+			valueOfHand += CalcValue(card);
+			CalcIfBust();
+			return card;
 		}
 
-		private bool CalculateIfBust()
+		private bool CalcIfBust()
 		{
 			if (valueOfHand >= pointsToBust)
-			{
-				IsBust = true;
-				return true;
-			}
+				return IsBust = true;
+
 			return false;
 		}
 
 		/// <summary>
-		/// Calculates the value of a certain card and adds that number 
+		/// Calculates the value of a certain card and adds that number.
 		/// </summary>
 		/// <param name="card"></param>
-		private void CalculateValueOfHand(PlayingCard card)
+		/// <returns>The value of the card</returns>
+		private int CalcValue(PlayingCard card)
 		{
-			if (card.Value != Value.Ace)
+			if (card.Value == Value.Ace)
 			{
-				valueOfHand += CardValueDefinition[card.Value];
-			}
-			else if (card.Value == Value.Ace)
-			{
-				// TODO: remove magic numbers
+				// TODO: magic numbers somehow
 				if (valueOfHand + 11 >= pointsToBust)
-				{
-					valueOfHand += 1; 
-				}
+					return 1; 
 				else
-				{
-					valueOfHand += 11;
-				}
+					return 11;
 			}
+			Console.WriteLine(card.Value);
+			return CardValueDefinition[card.Value];
 		}
 	}
 }

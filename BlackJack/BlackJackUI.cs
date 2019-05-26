@@ -14,11 +14,15 @@ namespace BlackJack
 {
 	public partial class BlackJackUI : Form
 	{
+		PlayingCardDeck deck = new PlayingCardDeck();
+		Player player = new Player();
+
+		int cardLocation = 15;
+
+
 		public BlackJackUI()
 		{
 			InitializeComponent();
-
-			ShowTwoCards();
 		}
 
 		private void ShowTwoCards()
@@ -43,24 +47,23 @@ namespace BlackJack
 
 		private void ShowDeck()
 		{
-			PlayingCardDeck cardDeck = new PlayingCardDeck();
-
 			int y = 0;
 			int x = 0;
 			int margin = 15;
 
-			int nthCardOfSymbol = 0;
+			int nthCardOfSuit = 0;
+			int cardsPerSuit = 12;
 
-			for (int i = 0; i < cardDeck.DeckList.Count; i++)
+			for (int i = 0; i < deck.DeckList.Count; i++)
 			{
-				PlayingCardControl control = new PlayingCardControl(cardDeck.DeckList[i])
+				PlayingCardControl control = new PlayingCardControl(deck.DeckList[i])
 				{
 					Location = new Point(x, y)
 				};
 				this.Controls.Add(control);
-				nthCardOfSymbol++;
+				nthCardOfSuit++;
 
-				if (nthCardOfSymbol % 13 == 0)
+				if (nthCardOfSuit % cardsPerSuit == 0)
 				{
 					x = 0;
 					y += control.Height + margin;
@@ -70,6 +73,20 @@ namespace BlackJack
 					x += control.Width + margin;
 				}
 			}
+		}
+
+		private void Hit_button_Click(object sender, EventArgs e)
+		{
+			PlayingCard card = player.Hit(deck);
+
+			PlayingCardControl cardControl = new PlayingCardControl(card)
+			{
+				Location = new Point(cardLocation, 15)
+			};
+
+			cardLocation += cardControl.Width + 15;
+
+			Controls.Add(cardControl);
 		}
 	}
 }
