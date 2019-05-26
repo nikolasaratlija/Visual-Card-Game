@@ -74,7 +74,6 @@ namespace BlackJack.Entities
 				else
 					return 11;
 			}
-			Console.WriteLine(card.Value);
 			return CardValueDefinition[card.Value];
 		}
 	}

@@ -19,7 +19,6 @@ namespace BlackJack
 
 		int cardLocation = 15;
 
-
 		public BlackJackUI()
 		{
 			InitializeComponent();
