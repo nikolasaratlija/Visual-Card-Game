@@ -51,7 +51,7 @@ namespace BlackJack
 			int margin = 15;
 
 			int nthCardOfSuit = 0;
-			int cardsPerSuit = 12;
+			int cardsPerSuit = 13;
 
 			for (int i = 0; i < deck.DeckList.Count; i++)
 			{

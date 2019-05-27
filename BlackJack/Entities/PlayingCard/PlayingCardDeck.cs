@@ -11,24 +11,37 @@ namespace BlackJack.Entities
 		private List<PlayingCard> DrawnCardsList = new List<PlayingCard>();
 
 		/// <summary>
-		/// creates 12 cards for each suit and puts them into a list
+		/// creates 13 cards for each suit and puts them into a list
 		/// </summary>
 		public PlayingCardDeck()
 		{
-			int cardsPerSuit = 12;
+			int cardsPerSuit = 13;
 			int suitCount = 4;
 
 			for (int suit = 0; suit < suitCount; suit++)
 			{
 				for (int value = 1; value <= cardsPerSuit; value++)
 				{
-					DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, value, true));
+					switch (value)
+					{
+						case (int)Symbol.Jack:
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							break;
+						case (int)Symbol.Queen:
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							break;
+						case (int)Symbol.King:
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							break;
+						case (int)Symbol.Ace:
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 11, true));
+							break;
+						default:
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, value, true));
+							break;
+					}
 				}
 			}
-
-			DeckList.Find(card => card.Symbol == Symbol.Ace).value = 11;
-
-			// TODO: change values of facecards to be 11
 		}
 
 		/// <summary>
