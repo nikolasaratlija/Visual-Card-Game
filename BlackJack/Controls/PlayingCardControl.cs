@@ -67,7 +67,7 @@ namespace BlackJack.Controls
 		private void SetSuits()
 		{
 			char[] suits = new char[4] { '♥', '♣', '♠', '♦' };
-			this.suit = suits[(int)suit];
+			this.suit = suits[(int)playingCard.Suit];
 
 			this.top_left_symbol.Text = this.suit.ToString();
 			this.bottom_right_symbol.Text = this.suit.ToString();
