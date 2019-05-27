@@ -8,7 +8,7 @@ namespace BlackJack.Entities
 {
 	abstract class Hand
 	{
-		const int pointsToBust = 21;
+		const int pointsToBust = 22;
 
 		private int valueOfHand = 0;
 		private List<PlayingCard> cardsInHand = new List<PlayingCard>();
@@ -28,7 +28,7 @@ namespace BlackJack.Entities
 		{
 			PlayingCard card = deck.DrawFirstCard();
 			cardsInHand.Add(card);
-			CalcValueOfHand(card);
+			Console.WriteLine(CalcValueOfHand(card));
 			CalcIfHandBust();
 			return card;
 		}
