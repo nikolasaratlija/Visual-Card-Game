@@ -28,8 +28,8 @@ namespace BlackJack.Entities
 		{
 			PlayingCard card = deck.DrawFirstCard();
 			cardsInHand.Add(card);
-			CalcValueOfHand();
-			CalcIfBust();
+			CalcValueOfHand(card);
+			CalcIfHandBust();
 			return card;
 		}
 
@@ -38,18 +38,39 @@ namespace BlackJack.Entities
 		/// </summary>
 		/// <param name="card"></param>
 		/// <returns>The value of the card</returns>
-		private int CalcValueOfHand()
+		private int CalcValueOfHand(PlayingCard playingCard)
 		{
-			if (IsBust == true && cardsInHand.Exists(card => card.Symbol == Symbol.Ace))
-				cardsInHand.First(card => card.value == 11).value = 1;
-			Console.WriteLine(cardsInHand.Sum(card => card.value));
-			return valueOfHand = cardsInHand.Sum(card => card.value);
+			if (CalcIfHandBust(playingCard.value))
+			{
+				if (cardsInHand.Exists(card => card.value == 11))
+				{
+					PlayingCard aceCard = cardsInHand.Find(card => card.value == 11);
+					aceCard.value = 1;
+					return valueOfHand = cardsInHand.Sum(card => card.value);
+				}
+			}
+
+			return valueOfHand += playingCard.value;
 		}
 
-		private bool CalcIfBust()
+		/// <summary>
+		/// Calculates whether the hand would bust with its current amounted value.
+		/// </summary>
+		/// <returns>A bool</returns>
+		private bool CalcIfHandBust()
 		{
-			if (valueOfHand >= pointsToBust)
-				return IsBust = true;
+			return IsBust = CalcIfHandBust(0);
+		}
+
+		/// <summary>
+		/// Calculates whether adding `int value` to `this.valueOfHand` would make this Hand bust
+		/// </summary>
+		/// <param name="value"></param>
+		/// <returns>A bool</returns>
+		private bool CalcIfHandBust(int value)
+		{
+			if (valueOfHand + value >= pointsToBust)
+				return true;
 
 			return false;
 		}
