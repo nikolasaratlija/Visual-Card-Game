@@ -9,19 +9,21 @@ namespace BlackJack.Entities
 	public class PlayingCard
 	{
 		public bool isFaceUp;
+		public int value;
 
 		#region getters and setters
 
 		internal Suit Suit { get; }
 
-		internal Value Value { get; }
+		internal Symbol Symbol { get; }
 
 		#endregion getters and setters
 
-		internal PlayingCard(Value value, Suit symbol, bool isFaceUp)
+		internal PlayingCard(Symbol symbol, Suit suit, int value, bool isFaceUp)
 		{
-			this.Value = value;
-			this.Suit = symbol;
+			this.Symbol = symbol;
+			this.Suit = suit;
+			this.value = value;
 			this.isFaceUp = isFaceUp;
 		}		
 

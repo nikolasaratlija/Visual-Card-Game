@@ -14,7 +14,7 @@ namespace BlackJack.Controls
 	public partial class PlayingCardControl : UserControl
 	{
 		private PlayingCard playingCard;
-		private string value;
+		private string symbol;
 		private char suit;
 
 		public PlayingCardControl(PlayingCard playingCard)
@@ -31,7 +31,7 @@ namespace BlackJack.Controls
 			}
 
 			SetVisibility();
-			SetValues();
+			SetSymbol();
 			SetSuits();
 		}
 
@@ -39,29 +39,29 @@ namespace BlackJack.Controls
 			this.card_backside.Visible = !this.card_backside.Visible;
 		}
 
-		private void SetValues()
+		private void SetSymbol()
 		{
-			switch (playingCard.Value)
+			switch (playingCard.Symbol)
 			{
-				case Value.Ace:
-					this.value = "A";
+				case Symbol.Ace:
+					this.symbol = "A";
 					break;
-				case Value.Jack:
-					this.value = "J";
+				case Symbol.Jack:
+					this.symbol = "J";
 					break;
-				case Value.Queen:
-					this.value = "Q";
+				case Symbol.Queen:
+					this.symbol = "Q";
 					break;
-				case Value.King:
-					this.value = "K";
+				case Symbol.King:
+					this.symbol = "K";
 					break;
 				default:
-					this.value = ((int)playingCard.Value).ToString();
+					this.symbol = ((int)playingCard.Symbol).ToString();
 					break;
 			}
 
-			this.top_left_value.Text = this.value;
-			this.bottom_right_value.Text = this.value;
+			this.top_left_symbol.Text = this.symbol;
+			this.bottom_right_symbol.Text = this.symbol;
 		}
 
 		private void SetSuits()
@@ -69,19 +69,19 @@ namespace BlackJack.Controls
 			char[] suits = new char[4] { '♥', '♣', '♠', '♦' };
 			this.suit = suits[(int)playingCard.Suit];
 
-			this.top_left_symbol.Text = this.suit.ToString();
-			this.bottom_right_symbol.Text = this.suit.ToString();
+			this.top_left_suit.Text = this.suit.ToString();
+			this.bottom_right_suit.Text = this.suit.ToString();
 
 			// sets the correct color of the symbols
 			if (this.playingCard.Suit == Suit.Diamonds || this.playingCard.Suit == Suit.Hearts)
 			{
-				this.top_left_symbol.ForeColor = Color.Red;
-				this.bottom_right_symbol.ForeColor = Color.Red;
+				this.top_left_suit.ForeColor = Color.Red;
+				this.bottom_right_suit.ForeColor = Color.Red;
 			}
 			else if (this.playingCard.Suit == Suit.Clubs || this.playingCard.Suit == Suit.Spades)
 			{
-				this.top_left_symbol.ForeColor = Color.Black;
-				this.bottom_right_symbol.ForeColor = Color.Black;
+				this.top_left_suit.ForeColor = Color.Black;
+				this.bottom_right_suit.ForeColor = Color.Black;
 			}
 		}
 

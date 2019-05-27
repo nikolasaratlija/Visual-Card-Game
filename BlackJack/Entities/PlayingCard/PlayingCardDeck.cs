@@ -8,10 +8,10 @@ namespace BlackJack.Entities
 {
 	class PlayingCardDeck
 	{
-		private readonly List<PlayingCard> DrawnCardsList = new List<PlayingCard>();
+		private List<PlayingCard> DrawnCardsList = new List<PlayingCard>();
 
 		/// <summary>
-		/// creates 13 cards for each suit and puts them into a list
+		/// creates 12 cards for each suit and puts them into a list
 		/// </summary>
 		public PlayingCardDeck()
 		{
@@ -22,9 +22,13 @@ namespace BlackJack.Entities
 			{
 				for (int value = 1; value <= cardsPerSuit; value++)
 				{
-					this.DeckList.Add(new PlayingCard((Value)value, (Suit)suit, true));
+					DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, value, true));
 				}
 			}
+
+			DeckList.Find(card => card.Symbol == Symbol.Ace).value = 11;
+
+			// TODO: change values of facecards to be 11
 		}
 
 		/// <summary>
@@ -48,7 +52,7 @@ namespace BlackJack.Entities
 		private void RemoveCard(PlayingCard card)
 		{
 			int index = DeckList.FindIndex(value => 
-				value.Value == card.Value && value.Suit == card.Suit
+				value.Symbol == card.Symbol && value.Suit == card.Suit
 			);
 
 			DeckList.RemoveAt(index);

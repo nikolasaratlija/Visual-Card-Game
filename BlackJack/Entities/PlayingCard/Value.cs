@@ -1,6 +1,6 @@
 ﻿namespace BlackJack.Entities
 {
-	enum Value
+	enum Symbol
 	{
 		Ace = 1,
 		Two, Three, Four, Five, Six, Seven, Eight, Nine,
