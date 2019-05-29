@@ -14,35 +14,74 @@ namespace BlackJack
 {
 	public partial class BlackJackUI : Form
 	{
+		#region properties
+
 		PlayingCardDeck deck = new PlayingCardDeck();
 		Player player = new Player();
 
-		int cardLocation = 15;
+		int cardLocationOffsetX = 15;
+		int cardLocationOffsetY = -25;
+		// TODO: figure out a way to get access the Size property of PlayingCardControl
+		Point defaultCardLocation = new Point(300, 300);
+
+		#endregion properties
+
+		#region constructor
 
 		public BlackJackUI()
 		{
 			InitializeComponent();
 		}
 
-		private void ShowTwoCards()
+		#endregion constructor
+
+		#region methods
+
+		private void PlaceCard(PlayingCard card)
 		{
-			Dealer dealer = new Dealer(new PlayingCardDeck());
-			PlayingCard cardOne = dealer.DealCard();
-			PlayingCard cardTwo = dealer.DealCard();
-
-			PlayingCardControl cardControlOne = new PlayingCardControl(cardOne)
+			PlayingCardControl cardControl = new PlayingCardControl(card)
 			{
-				Location = new Point(15, 15)
+				Location = defaultCardLocation
 			};
+			Controls.Add(cardControl);
 
-			PlayingCardControl cardControlTwo = new PlayingCardControl(cardTwo)
-			{
-				Location = new Point(90, 15)
-			};
+			defaultCardLocation.X += cardLocationOffsetX;
+			defaultCardLocation.Y += cardLocationOffsetY;
 
-			Controls.Add(cardControlOne);
-			Controls.Add(cardControlTwo);
+			hand_value_label.Text = player.ValueOfHand.ToString();
 		}
+
+		private void HandleBust()
+		{
+			Console.WriteLine("you bust lmao get gud");
+			hand_value_label.ForeColor = Color.Red;
+			SwitchHitButtonEnabled();
+		}
+
+		private void SwitchHitButtonEnabled()
+		{
+			hit_button.Enabled = !hit_button.Enabled;
+		}
+
+		#region events
+
+		private void Hit_button_Click(object sender, EventArgs e)
+		{
+			PlayingCard card = player.Hit(deck);
+
+			PlaceCard(card);
+
+			if (player.IsBust) HandleBust();
+		}
+
+		private void Reset_button_Click(object sender, EventArgs e)
+		{
+			if (!hit_button.Enabled) SwitchHitButtonEnabled();
+		}
+
+		#endregion events
+
+		#region debugging
 
 		private void ShowDeck()
 		{
@@ -74,18 +113,8 @@ namespace BlackJack
 			}
 		}
 
-		private void Hit_button_Click(object sender, EventArgs e)
-		{
-			PlayingCard card = player.Hit(deck);
+		#endregion debugging
 
-			PlayingCardControl cardControl = new PlayingCardControl(card)
-			{
-				Location = new Point(cardLocation, 15)
-			};
-
-			cardLocation += cardControl.Width + 15;
-
-			Controls.Add(cardControl);
-		}
+		#endregion methods
 	}
 }

@@ -9,13 +9,12 @@ namespace BlackJack.Entities
 	abstract class Hand
 	{
 		const int pointsToBust = 22;
-
-		private int valueOfHand = 0;
 		private List<PlayingCard> cardsInHand = new List<PlayingCard>();
 
 		#region getters and setters 
 
 		public bool IsBust { get; private set; } = false;
+		public int ValueOfHand { get; private set; } = 0;
 
 		#endregion
 
@@ -45,8 +44,8 @@ namespace BlackJack.Entities
 
 			if (CalcIfHandBust(playingCard.value) && cardsInHand.Exists(c => c.value == 11))
 				cardsInHand.Find(c => c.value == 11).value = 1;
-			
-			return valueOfHand = cardsInHand.Sum(c => c.value);
+
+			return ValueOfHand = cardsInHand.Sum(c => c.value);
 		}
 
 		/// <summary>
@@ -65,9 +64,9 @@ namespace BlackJack.Entities
 		/// <returns>A bool</returns>
 		private bool CalcIfHandBust(int value)
 		{
-			if (valueOfHand + value >= pointsToBust)
+			if (ValueOfHand + value >= pointsToBust)
 				return true;
-
+			
 			return false;
 		}
 	}
