@@ -27,7 +27,6 @@ namespace BlackJack.Entities
 		public PlayingCard Hit(PlayingCardDeck deck)
 		{
 			PlayingCard card = deck.DrawFirstCard();
-			cardsInHand.Add(card);
 			Console.WriteLine(CalcValueOfHand(card));
 			CalcIfHandBust();
 			return card;
@@ -40,17 +39,12 @@ namespace BlackJack.Entities
 		/// <returns>The value of the card</returns>
 		private int CalcValueOfHand(PlayingCard playingCard)
 		{
-			if (CalcIfHandBust(playingCard.value))
-			{
-				if (cardsInHand.Exists(card => card.value == 11))
-				{
-					PlayingCard aceCard = cardsInHand.Find(card => card.value == 11);
-					aceCard.value = 1;
-					return valueOfHand = cardsInHand.Sum(card => card.value);
-				}
-			}
+			cardsInHand.Add(playingCard);
 
-			return valueOfHand += playingCard.value;
+			if (CalcIfHandBust(playingCard.value) && cardsInHand.Exists(c => c.value == 11))
+				cardsInHand.Find(c => c.value == 11).value = 1;
+			
+			return valueOfHand = cardsInHand.Sum(c => c.value);
 		}
 
 		/// <summary>
