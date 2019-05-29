@@ -26,8 +26,10 @@ namespace BlackJack.Entities
 		/// <returns>A PlayingCard object</returns>
 		public PlayingCard Hit(PlayingCardDeck deck)
 		{
+			if (IsBust) return null;
+
 			PlayingCard card = deck.DrawFirstCard();
-			Console.WriteLine(CalcValueOfHand(card));
+			CalcValueOfHand(card);
 			CalcIfHandBust();
 			return card;
 		}
