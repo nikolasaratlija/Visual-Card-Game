@@ -23,19 +23,12 @@ namespace BlackJack.Controls
 
 			this.playingCard = playingCard;
 
-			this.Click += new EventHandler(this.FlipCard);
-
-			for (int i = 0; i < Controls.Count; i++)
-			{
-				Controls[i].Click += new EventHandler(this.FlipCard);
-			}
-
 			SetVisibility();
 			SetSymbol();
 			SetSuits();
 		}
 
-		private void FlipCard(object sender, EventArgs e) {
+		public void FlipCard(object sender, EventArgs e) {
 			this.card_backside.Visible = !this.card_backside.Visible;
 		}
 
