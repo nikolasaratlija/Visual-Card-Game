@@ -22,7 +22,7 @@ namespace BlackJack
 		int cardLocationOffsetX = 15;
 		int cardLocationOffsetY = -25;
 		// TODO: figure out a way to get access the Size property of PlayingCardControl
-		Point defaultCardLocation = new Point(300, 300);
+		Point nextCardLocation = new Point(300, 300);
 
 		#endregion properties
 
@@ -41,19 +41,18 @@ namespace BlackJack
 		{
 			PlayingCardControl cardControl = new PlayingCardControl(card)
 			{
-				Location = defaultCardLocation
+				Location = nextCardLocation
 			};
 			Controls.Add(cardControl);
 
-			defaultCardLocation.X += cardLocationOffsetX;
-			defaultCardLocation.Y += cardLocationOffsetY;
+			nextCardLocation.X += cardLocationOffsetX;
+			nextCardLocation.Y += cardLocationOffsetY;
 
-			hand_value_label.Text = player.ValueOfHand.ToString();
+			hand_value_label.Text = player.Value.ToString();
 		}
 
 		private void HandleBust()
 		{
-			Console.WriteLine("you bust lmao get gud");
 			hand_value_label.ForeColor = Color.Red;
 			SwitchHitButtonEnabled();
 		}

@@ -14,7 +14,7 @@ namespace BlackJack.Entities
 		#region getters and setters 
 
 		public bool IsBust { get; private set; } = false;
-		public int ValueOfHand { get; private set; } = 0;
+		public int Value { get; private set; } = 0;
 
 		#endregion
 
@@ -45,7 +45,7 @@ namespace BlackJack.Entities
 			if (CalcIfHandBust(playingCard.value) && cardsInHand.Exists(c => c.value == 11))
 				cardsInHand.Find(c => c.value == 11).value = 1;
 
-			return ValueOfHand = cardsInHand.Sum(c => c.value);
+			return Value = cardsInHand.Sum(c => c.value);
 		}
 
 		/// <summary>
@@ -64,7 +64,7 @@ namespace BlackJack.Entities
 		/// <returns>A bool</returns>
 		private bool CalcIfHandBust(int value)
 		{
-			if (ValueOfHand + value >= pointsToBust)
+			if (Value + value >= pointsToBust)
 				return true;
 			
 			return false;
