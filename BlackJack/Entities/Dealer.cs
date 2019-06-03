@@ -8,16 +8,9 @@ namespace BlackJack.Entities
 {
 	class Dealer : Hand
 	{
-		private PlayingCardDeck deck;
-
-		public Dealer(PlayingCardDeck deck)
+		public Dealer(PlayingCardDeck deck) : base(deck)
 		{
-			this.deck = deck;
-		}
-
-		public PlayingCard DealCard()
-		{
-			return deck.DrawFirstCard();
+		
 		}
 	}
 }

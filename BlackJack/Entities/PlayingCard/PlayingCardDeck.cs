@@ -25,19 +25,19 @@ namespace BlackJack.Entities
 					switch (value)
 					{
 						case (int)Symbol.Jack:
-							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10));
 							break;
 						case (int)Symbol.Queen:
-							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10));
 							break;
 						case (int)Symbol.King:
-							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10, true));
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 10));
 							break;
 						case (int)Symbol.Ace:
-							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 11, true));
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, 11));
 							break;
 						default:
-							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, value, true));
+							DeckList.Add(new PlayingCard((Symbol)value, (Suit)suit, value));
 							break;
 					}
 				}

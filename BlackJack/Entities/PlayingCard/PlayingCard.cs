@@ -19,7 +19,7 @@ namespace BlackJack.Entities
 
 		#endregion getters and setters
 
-		internal PlayingCard(Symbol symbol, Suit suit, int value, bool isFaceUp)
+		internal PlayingCard(Symbol symbol, Suit suit, int value, bool isFaceUp = true)
 		{
 			this.Symbol = symbol;
 			this.Suit = suit;

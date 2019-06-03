@@ -10,6 +10,7 @@ namespace BlackJack.Entities
 	{
 		const int pointsToBust = 22;
 		private List<PlayingCard> cardsInHand = new List<PlayingCard>();
+		private PlayingCardDeck deck;
 
 		#region getters and setters 
 
@@ -18,18 +19,23 @@ namespace BlackJack.Entities
 
 		#endregion
 
+		public Hand(PlayingCardDeck deck)
+		{
+			this.deck = deck;
+		}
+
 		/// <summary>
 		/// Draws a card then adds the value of the card.
 		/// </summary>
 		/// <param name="deck"></param>
 		/// <returns>A PlayingCard object</returns>
-		public PlayingCard Hit(PlayingCardDeck deck)
+		public PlayingCard Hit()
 		{
 			if (IsBust) return null;
 
 			PlayingCard card = deck.DrawFirstCard();
 			CalcValueOfHand(card);
-			CalcIfHandBust();
+			CalcIfBust();
 			return card;
 		}
 
@@ -42,8 +48,11 @@ namespace BlackJack.Entities
 		{
 			cardsInHand.Add(playingCard);
 
-			if (CalcIfHandBust(playingCard.value) && cardsInHand.Exists(c => c.value == 11))
-				cardsInHand.Find(c => c.value == 11).value = 1;
+			if (CalcIfHandBust(playingCard.value))
+			{
+				PlayingCard card = cardsInHand.Find(c => c.value == 11);
+				if (card != null) card.value = 1;
+			}
 
 			return Value = cardsInHand.Sum(c => c.value);
 		}
@@ -52,7 +61,7 @@ namespace BlackJack.Entities
 		/// Calculates whether the hand would bust with its current amounted value.
 		/// </summary>
 		/// <returns>A bool</returns>
-		private bool CalcIfHandBust()
+		private bool CalcIfBust()
 		{
 			return IsBust = CalcIfHandBust(0);
 		}

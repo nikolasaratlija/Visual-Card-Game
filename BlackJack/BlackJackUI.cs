@@ -17,7 +17,7 @@ namespace BlackJack
 		#region properties
 
 		PlayingCardDeck deck = new PlayingCardDeck();
-		Player player = new Player();
+		Player player;
 
 		int cardLocationOffsetX = 15;
 		int cardLocationOffsetY = -25;
@@ -31,6 +31,7 @@ namespace BlackJack
 		public BlackJackUI()
 		{
 			InitializeComponent();
+			player = new Player(deck);
 		}
 
 		#endregion constructor
@@ -66,7 +67,7 @@ namespace BlackJack
 
 		private void Hit_button_Click(object sender, EventArgs e)
 		{
-			PlayingCard card = player.Hit(deck);
+			PlayingCard card = player.Hit();
 
 			PlaceCard(card);
 
