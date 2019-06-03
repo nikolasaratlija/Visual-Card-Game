@@ -52,11 +52,11 @@
 			// reset_button
 			// 
 			this.reset_button.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.reset_button.Location = new System.Drawing.Point(640, 12);
+			this.reset_button.Location = new System.Drawing.Point(670, 12);
 			this.reset_button.Name = "reset_button";
-			this.reset_button.Size = new System.Drawing.Size(102, 34);
+			this.reset_button.Size = new System.Drawing.Size(72, 29);
 			this.reset_button.TabIndex = 1;
-			this.reset_button.Text = "Reset hand";
+			this.reset_button.Text = "Reset";
 			this.reset_button.UseVisualStyleBackColor = true;
 			this.reset_button.Click += new System.EventHandler(this.Reset_button_Click);
 			// 
@@ -99,31 +99,31 @@
 			// button2
 			// 
 			this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button2.Location = new System.Drawing.Point(616, 356);
+			this.button2.Location = new System.Drawing.Point(594, 356);
 			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(30, 30);
+			this.button2.Size = new System.Drawing.Size(37, 30);
 			this.button2.TabIndex = 7;
-			this.button2.Text = "5";
+			this.button2.Text = "+ 5";
 			this.button2.UseVisualStyleBackColor = true;
 			// 
 			// button3
 			// 
 			this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button3.Location = new System.Drawing.Point(652, 356);
+			this.button3.Location = new System.Drawing.Point(637, 356);
 			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(38, 30);
+			this.button3.Size = new System.Drawing.Size(46, 30);
 			this.button3.TabIndex = 8;
-			this.button3.Text = "25";
+			this.button3.Text = "+ 25";
 			this.button3.UseVisualStyleBackColor = true;
 			// 
 			// button4
 			// 
 			this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.button4.Location = new System.Drawing.Point(696, 356);
+			this.button4.Location = new System.Drawing.Point(689, 356);
 			this.button4.Name = "button4";
-			this.button4.Size = new System.Drawing.Size(46, 30);
+			this.button4.Size = new System.Drawing.Size(53, 30);
 			this.button4.TabIndex = 9;
-			this.button4.Text = "100";
+			this.button4.Text = "+ 100";
 			this.button4.UseVisualStyleBackColor = true;
 			// 
 			// BlackJackUI
